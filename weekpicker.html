@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div {
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <p><input type="text" id="date" readonly></p>
+  <button onclick="search()">查询</button>
+  <button onclick="reset()">重置</button>
+  <div>
+    <p class="va"></p>
+    <p class="vs"></p>
+    <p class="ve"></p>
+  </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./weekpicker.js"></script>
+<script>
+  // 一周的起止日期，如果不是从周一开始，将计算开始日期所在周，不传就是默认空着
+  // $('#date').weekpicker({})
+
+  $('#date').weekpicker({
+    // start_date: '2023-12-29',
+    // end_date: '2023-12-31'
+  })
+
+  function search() {
+    const v = $('#date').weekpicker('getValue')
+    $('.va').html(v.value)
+    $('.vs').html(v.start)
+    $('.ve').html(v.end)
+  }
+
+  function reset() {
+    $('#date').weekpicker('clear')
+  }
+
+</script>
+</html>
